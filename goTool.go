@@ -1,11 +1,41 @@
 package goTool
 
 import (
+	"encoding/base64"
 	"encoding/json"
 	"strconv"
 )
 
 type GoTool struct {
+}
+
+/**
+byte数组转base64字符串
+*/
+func (goTool *GoTool) ByteToBase64(bt []byte) string {
+	return base64.StdEncoding.EncodeToString(bt)
+}
+
+/**
+base64转byte数组
+*/
+func (goTool *GoTool) Base64ToByte(baseStr string) []byte {
+	res, _ := base64.StdEncoding.DecodeString(baseStr)
+	return res
+}
+
+/**
+字符串转base64字符串
+*/
+func (goTool *GoTool) StrToBase64(str string) string {
+	return goTool.ByteToBase64([]byte(str))
+}
+
+/**
+base64转字符串
+*/
+func (goTool *GoTool) Base64ToStr(baseStr string) string {
+	return string(goTool.Base64ToByte(baseStr))
 }
 
 func (goTool *GoTool) JsonToMap(jsonStr string) map[string]interface{} {
