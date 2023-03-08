@@ -3,6 +3,7 @@ package goTool
 import (
 	"encoding/base64"
 	"encoding/json"
+	"fmt"
 	"strconv"
 )
 
@@ -118,5 +119,11 @@ func (goTool *GoTool) Strval(value interface{}) string {
 }
 
 func (goTool *GoTool) Intval(value interface{}) int {
-	return value.(int)
+	switch value.(type) {
+	case float64:
+		ft := value.(float64)
+		i, _ := strconv.Atoi(fmt.Sprintf("%1.0f", ft))
+		return i
+	}
+	return 0
 }
