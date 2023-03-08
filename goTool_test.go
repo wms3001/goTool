@@ -41,3 +41,8 @@ func TestGoTool_JsonToMap(t *testing.T) {
 	//fmt.Println(m)
 	//mqpRee := goTool.JsonToMap(vvl)
 }
+
+func TestGoTool_Intval(t *testing.T) {
+	var goTool = &GoTool{}
+	goTool.Intval(1)
+}

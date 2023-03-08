@@ -116,3 +116,7 @@ func (goTool *GoTool) Strval(value interface{}) string {
 
 	return key
 }
+
+func (goTool *GoTool) Intval(value interface{}) int {
+	return value.(int)
+}
